@@ -15,4 +15,4 @@ class ChatLog(models.Model):
     
     
     def __str__(self):
-        return f"{self.answer_id if self.answer_id else self.question_id} sent to {self.user_id} user "
+        return f"{self.sent_answer.id if self.sent_answer else self.sent_question} sent to {self.user_id} user "

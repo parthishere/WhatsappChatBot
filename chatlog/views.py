@@ -48,8 +48,10 @@ def home(request):
                 obj = ChatLog.objects.create(user=user, user_text_recived_body=text, sent_answer=message)
             
             
-            
-        
+         # all sent and recived questions   
+         
+        if user:
+            context['objects'] = ChatLog.objects.filter(user=user).order_by('-id')
             
         context['form'] = chat_form
         
